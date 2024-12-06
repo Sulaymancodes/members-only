@@ -10,7 +10,7 @@ app.set("view engine", "ejs");
 const assetsPath = path.join(__dirname, "public");
 app.use(express.static(assetsPath));
 
-app.use("/sign-up", signUpRouter);
+app.use("/", signUpRouter);
 app.use("/log-in", logInRouter)
 
 
