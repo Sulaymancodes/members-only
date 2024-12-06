@@ -1,4 +1,4 @@
-const signUp = (req, res) => {
+function signUp (req, res) {
     res.render("sign-up")
 }
 
