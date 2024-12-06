@@ -1,4 +1,5 @@
 const { body, validationResult } = require("express-validator");
+const bcryptjs = require('bcryptjs');
 const db = require('../db/queries')
 
 const validatePassword = [
@@ -24,8 +25,14 @@ const createUser = [
                 {errors: errors.array()})
         }
         const { firstName, lastName, username, password} = req.body;
-        await db.addUser(firstName, lastName, username, password);
-        res.redirect('/log-in');
+        bcryptjs.hash(password, 10, async (err, hashedPassword) => {
+            try {
+                await db.addUser(firstName, lastName, username, hashedPassword);
+                res.redirect('/log-in');
+            } catch (err) {
+                return next(err)
+            }
+        })
     }
 ]
 
