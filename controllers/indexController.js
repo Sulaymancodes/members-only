@@ -7,5 +7,13 @@ function getIndex (req, res) {
     
 }
 
+function logOutUser (req, res) {
+    req.logout((err) => {
+        if (err) {
+            return next(err);
+        }
+        res.redirect("/log-in");
+    });
+}
 
 module.exports = { getIndex, logOutUser }
