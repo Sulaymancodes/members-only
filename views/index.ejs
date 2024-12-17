@@ -6,7 +6,23 @@
     <title>Members Only</title>
 </head>
 <body>
-   <h1>This is the index page</h1> 
+    <nav>
+        <ul>
+            <li><a href="/members-only">Home</a></li>
+            <li><a href="/write-message">Write a Message</a></li>
+            <li><a href="/membership">Become a Member</a></li>
+            <li><a href="/settings">Settings</a></li>
+        </ul>
+    </nav>
+    <% messages.forEach(message => {%>
+        <div>
+            <p><%= message.title %></p>
+            <p>Name: <%= message.first_name %></p>
+            <p>UserName: <%= message.username %></p>
+            <p><%= message.text %></p>
+            <p><%= message.timestamp %></p>
+        </div>
+    <% }); %>
    <a href="/log-out">Log-Out</a>
 </body>
 </html>

@@ -3,7 +3,9 @@ const bcryptjs = require('bcryptjs');
 const db = require('../db/queries')
 
 const validatePassword = [
-    body("password"),
+    body("password")
+        .notEmpty().withMessage("Password cannot be empty")
+        .isLength({ min: 6 }).withMessage("Password must be at least 6 characters"),
     body("confirm-password").custom((value, { req }) => {
         if (value !== req.body.password) {
             throw new Error ("Passwords Do Not Match");

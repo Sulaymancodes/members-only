@@ -1,6 +1,14 @@
-function getIndex (req, res) {
+const db = require("../db/queries");
+
+async function getIndex (req, res) {
     if (req.isAuthenticated()) {
-        res.render('index');
+        try {
+            const messages = await db.getMessages();
+            res.render('index', {messages: messages});
+        } catch (err) {
+            console.log(err);
+            res.render('index', {messages:[]});
+        }
     } else {
         res.send("you are not authenticated");
     }
