@@ -9,6 +9,7 @@ const pgSession = require("connect-pg-simple")(session);
 const indexRouter = require("./routes/indexRouter");
 const signUpRouter = require("./routes/signUpRouter");
 const logInRouter = require("./routes/logInRouter");
+const messageRouter = require("./routes/messageRouter");
 const app = express();
 
 app.use(express.urlencoded({ extended: true }));
@@ -36,7 +37,8 @@ app.use(passport.session());
 
 app.use("/", indexRouter);
 app.use("/", signUpRouter);
-app.use("/", logInRouter)
+app.use("/", logInRouter);
+app.use("/", messageRouter);
 
 
 
