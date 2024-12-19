@@ -17,8 +17,13 @@
     <% messages.forEach(message => {%>
         <div>
             <p><%= message.title %></p>
-            <p>Name: <%= message.first_name %></p>
-            <p>UserName: <%= message.username %></p>
+            <% if (status) { %> 
+                <p>Name: <%= message.first_name %></p>
+                <p>Username: <%= message.username %></p>
+            <% }  else { %>
+                <p>Name: Anonymous</p>
+                <p>Username: Anonymous</p>
+            <% } %>
             <p><%= message.text %></p>
             <p><%= message.timestamp %></p>
         </div>

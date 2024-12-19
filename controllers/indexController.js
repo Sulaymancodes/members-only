@@ -1,10 +1,11 @@
 const db = require("../db/queries");
 
 async function getIndex (req, res) {
+    const membership_status = req.user.membership_status
     if (req.isAuthenticated()) {
         try {
             const messages = await db.getMessages();
-            res.render('index', {messages: messages});
+            res.render('index', {messages: messages, status: membership_status});
         } catch (err) {
             console.log(err);
             res.render('index', {messages:[]});
