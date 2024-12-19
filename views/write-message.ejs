@@ -7,5 +7,12 @@
 </head>
 <body>
     <h1>Add a Message</h1>
+    <form action="/add-message" method="POST">
+        <label for="title">Title:</label><br>
+        <input type="text" required id="title" name="title"><br>
+        <label for="message">Message:</label><br>
+        <input type="text" required id="message" name="message"><br>
+        <button type="submit">Submit</button>
+    </form>
 </body>
 </html>

@@ -15,8 +15,12 @@ async function getMessages() {
     return rows;
 }
 
+async function addMessage(id, title, text) {
+    await pool.query("INSERT INTO messages (user_id, title, text, timestamp) VALUES ($1, $2, $3, now())", [id, title, text]) 
+}
 module.exports = {
     addUser,
     getUsers,
-    getMessages
+    getMessages, 
+    addMessage
 }
