@@ -11,6 +11,7 @@ const signUpRouter = require("./routes/signUpRouter");
 const logInRouter = require("./routes/logInRouter");
 const messageRouter = require("./routes/messageRouter");
 const becomeMemberRouter = require("./routes/becomeMemberRouter");
+const settingsRouter = require("./routes/settingsRouter");
 
 const app = express();
 
@@ -43,6 +44,7 @@ app.use("/", signUpRouter);
 app.use("/", logInRouter);
 app.use("/", messageRouter);
 app.use("/", becomeMemberRouter);
+app.use("/", settingsRouter);
 
 const PORT = 3000;
 app.listen(PORT, () => {
