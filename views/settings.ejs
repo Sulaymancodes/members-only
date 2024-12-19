@@ -7,5 +7,19 @@
 </head>
 <body>
     <h1>Settings Page</h1>
+    <% if (update) { %>
+        <p>Settings Updated Successfully</p>
+    <% } %>
+    <form action="/update-user" method="POST">
+        <label for="firstName">FirstName:</label>
+        <input type="text" id="firstname" name="firstName" required value="<%= user.first_name %>"><br>
+        <label for="lastName">LastName:</label>
+        <input type="text" id="lastName" name="lastName" required value="<%= user.last_name %>"><br>
+        <label for="username">Username:</label>
+        <input type="text" name="username" id="username" required maxlength="20" value="<%= user.username %>"><br>
+        <label for="password">Password:</label>
+        <input type="password" name="password" id="password" required minlength="4" value="<%= user.password %>"><br>
+        <button type="submit">UPDATE</button>
+    </form>
 </body>
 </html>
