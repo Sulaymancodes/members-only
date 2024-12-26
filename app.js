@@ -13,6 +13,7 @@ const logInRouter = require("./routes/logInRouter");
 const messageRouter = require("./routes/messageRouter");
 const becomeMemberRouter = require("./routes/becomeMemberRouter");
 const settingsRouter = require("./routes/settingsRouter");
+const errorRouter = require("./routes/404Router");
 
 const app = express();
 
@@ -47,6 +48,7 @@ app.use("/", logInRouter);
 app.use("/", messageRouter);
 app.use("/", becomeMemberRouter);
 app.use("/", settingsRouter);
+app.use("/", errorRouter);
 
 const PORT = 3000;
 app.listen(PORT, () => {

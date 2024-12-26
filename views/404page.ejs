@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Not Found - MembersHub</title>
+    <link rel="stylesheet" href="/error.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="glitch-wrapper">
+            <div class="glitch">404</div>
+        </div>
+        <h1 class="title">Page Not Found</h1>
+        <p class="message">Oops! It seems you've ventured into uncharted territory. The page you're looking for might have moved or no longer exists. Don't worry though – our community has plenty of other exciting content to explore!</p>
+        <div class="buttons">
+            <a href="/" class="button button-primary">Back to Home</a>
+            <a href="/members-only" class="button button-secondary">Explore Content</a>
+        </div>
+    </div>
+
+    <script>
+        // Animate elements
+        gsap.to(".glitch-wrapper", {
+            opacity: 1,
+            duration: 0.5,
+            delay: 0.2
+        });
+
+        gsap.to(".title", {
+            opacity: 1,
+            y: 0,
+            duration: 0.5,
+            delay: 0.4
+        });
+
+        gsap.to(".message", {
+            opacity: 1,
+            y: 0,
+            duration: 0.5,
+            delay: 0.6
+        });
+
+        gsap.to(".buttons", {
+            opacity: 1,
+            y: 0,
+            duration: 0.5,
+            delay: 0.8
+        });
+    </script>
+</body>
+</html>
