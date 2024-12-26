@@ -1,0 +1,107 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #2d1f4c 0%, #624a8e 100%);
+    color: white;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    text-align: center;
+    padding: 20px;
+    max-width: 600px;
+}
+
+.icon {
+    font-size: 64px;
+    margin-bottom: 24px;
+    opacity: 0;
+}
+
+.lock-icon {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 24px;
+    opacity: 0;
+    fill: #b794f4;
+}
+
+.title {
+    font-size: 32px;
+    margin-bottom: 16px;
+    opacity: 0;
+}
+
+.message {
+    font-size: 18px;
+    color: #e2e8f0;
+    margin-bottom: 32px;
+    line-height: 1.6;
+    opacity: 0;
+}
+
+.buttons {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    opacity: 0;
+}
+
+.button {
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-decoration: none;
+}
+
+.button-primary {
+    background: #9f7aea;
+    color: white;
+    border: none;
+}
+
+.button-primary:hover {
+    background: #805ad5;
+    transform: translateY(-2px);
+}
+
+.button-secondary {
+    background: transparent;
+    border: 2px solid #b794f4;
+    color: white;
+}
+
+.button-secondary:hover {
+    background: rgba(183, 148, 244, 0.1);
+    transform: translateY(-2px);
+}
+
+.error-box {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 32px;
+    border-radius: 16px;
+    margin-bottom: 32px;
+    opacity: 0;
+    border: 1px solid rgba(183, 148, 244, 0.2);
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.pulse {
+    animation: pulse 2s infinite;
+}
