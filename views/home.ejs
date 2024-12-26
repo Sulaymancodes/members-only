@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/home.css">
+    <title>Members Only - Feed</title>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-brand">Members Only</div>
+        <div class="nav-links">
+            <ul>
+                <li><a href="/members-only" class="active">Home</a></li>
+                <li><a href="/write-message">Write a Message</a></li>
+                <li><a href="/become-member">Become a Member</a></li>
+                <li><a href="/settings">Settings</a></li>
+            </ul>
+        </div>
+        <a href="/log-out" class="logout-btn">Log Out</a>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container">
+        <div class="message-feed">
+            <% messages.forEach(message => { %>
+                <article class="message-card">
+                    <div class="message-header">
+                        <h2 class="message-title"><%= message.title %></h2>
+                        <div class="message-meta">
+                            <div class="author-info">
+                                <% if (status) { %> 
+                                    <p class="author-name">By <%= message.first_name %></p>
+                                    <p class="author-username">@<%= message.username %></p>
+                                <% } else { %>
+                                    <p class="author-name">By Anonymous</p>
+                                    <p class="author-username">@anonymous</p>
+                                <% } %>
+                            </div>
+                            <time class="message-time"><%= message.timestamp %></time>
+                        </div>
+                    </div>
+                    <p class="message-text"><%= message.text %></p>
+                </article>
+            <% }); %>
+        </div>
+    </main>
+</body>
+</html>

@@ -3,48 +3,93 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Members-Only</title>
     <link rel="stylesheet" href="/index.css">
-    <title>Members Only - Feed</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="navbar">
-        <div class="nav-brand">Members Only</div>
-        <div class="nav-links">
-            <ul>
-                <li><a href="/members-only" class="active">Home</a></li>
-                <li><a href="/write-message">Write a Message</a></li>
-                <li><a href="/become-member">Become a Member</a></li>
-                <li><a href="/settings">Settings</a></li>
-            </ul>
+    <nav>
+        <div class="container nav-content">
+            <div class="logo">Members<span>Only</span></div>
+            <div class="nav-links">
+                <a href="#features">Features</a>
+                <a href="#pricing">Pricing</a>
+                <a href="#about">About</a>
+            </div>
+            <div class="nav-buttons">
+                <button class="button button-filled"><a class="link-btn" href="/log-in">Login</a></button>
+                <button class="button button-filled"><a class="link-btn" href="/sign-up">Sign Up</a></button>
+            </div>
         </div>
-        <a href="/log-out" class="logout-btn">Log Out</a>
     </nav>
 
-    <!-- Main Content -->
-    <main class="container">
-        <div class="message-feed">
-            <% messages.forEach(message => { %>
-                <article class="message-card">
-                    <div class="message-header">
-                        <h2 class="message-title"><%= message.title %></h2>
-                        <div class="message-meta">
-                            <div class="author-info">
-                                <% if (status) { %> 
-                                    <p class="author-name">By <%= message.first_name %></p>
-                                    <p class="author-username">@<%= message.username %></p>
-                                <% } else { %>
-                                    <p class="author-name">By Anonymous</p>
-                                    <p class="author-username">@anonymous</p>
-                                <% } %>
-                            </div>
-                            <time class="message-time"><%= message.timestamp %></time>
-                        </div>
-                    </div>
-                    <p class="message-text"><%= message.text %></p>
+    <!-- Hero Section -->
+    <section class="hero container">
+        <h1 id="hero-text">Reddit with a Catch.<br>Premium Content.</h1>
+        <p>As a member of our exclusive community, you'll gain privileged access to a unique social platform where transparency meets privacy.</p>
+        <button class="button button-filled button-large">Get Started Today</button>
+    </section>
+
+    <!-- Features -->
+    <section class="features">
+        <div class="container">
+            <div class="features-grid">
+                <article class="feature-card">
+                    <span class="feature-icon">🔒</span>
+                    <h3 class="feature-title">Secure Access</h3>
+                    <p class="feature-text">End-to-end encryption and secure authentication to protect your exclusive content.</p>
                 </article>
-            <% }); %>
+
+                <article class="feature-card">
+                    <span class="feature-icon">💎</span>
+                    <h3 class="feature-title">Premium Content</h3>
+                    <p class="feature-text">Access to exclusive content, tutorials, and resources updated weekly.</p>
+                </article>
+
+                <article class="feature-card">
+                    <span class="feature-icon">👥</span>
+                    <h3 class="feature-title">Community</h3>
+                    <p class="feature-text">Connect with like-minded individuals in our private community forums.</p>
+                </article>
+            </div>
         </div>
-    </main>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta container">
+        <div class="cta-content">
+            <h2>Ready to Join Our Community?</h2>
+            <p>Start your journey today and unlock exclusive benefits.</p>
+            <button class="button button-large">Join Now</button>
+        </div>
+    </section>
+
+    <script>
+        // Animation for the hero text
+        gsap.from("#hero-text", {
+            duration: 1,
+            y: 50,
+            opacity: 0,
+            ease: "power3.out"
+        });
+
+        // Animate features on scroll
+        const features = document.querySelectorAll(".feature-card");
+        features.forEach((feature, index) => {
+            gsap.from(feature, {
+                scrollTrigger: {
+                    trigger: feature,
+                    start: "top bottom-=100",
+                    toggleActions: "play none none reverse"
+                },
+                duration: 0.6,
+                y: 50,
+                opacity: 0,
+                delay: index * 0.2,
+                ease: "power2.out"
+            });
+        });
+    </script>
 </body>
 </html>

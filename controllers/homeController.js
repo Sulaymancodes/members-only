@@ -1,14 +1,14 @@
 const db = require("../db/queries");
 
-async function getIndex (req, res) {
+async function getHome (req, res) {
     const membership_status = req.user.membership_status
     if (req.isAuthenticated()) {
         try {
             const messages = await db.getMessages();
-            res.render('index', {messages: messages, status: membership_status});
+            res.render('home', {messages: messages, status: membership_status});
         } catch (err) {
             console.log(err);
-            res.render('index', {messages:[]});
+            res.render('home', {messages:[]});
         }
     } else {
         res.send("you are not authenticated");
@@ -25,4 +25,4 @@ function logOutUser (req, res) {
     });
 }
 
-module.exports = { getIndex, logOutUser }
+module.exports = { getHome, logOutUser }
