@@ -3,23 +3,105 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Settings</title>
+    <link rel="stylesheet" href="/settings.css">
+    <title>Members Only - Settings</title>
 </head>
 <body>
-    <h1>Settings Page</h1>
-    <% if (update) { %>
-        <p>Settings Updated Successfully</p>
-    <% } %>
-    <form action="/update-user" method="POST">
-        <label for="firstName">FirstName:</label>
-        <input type="text" id="firstname" name="firstName" required value="<%= user.first_name %>"><br>
-        <label for="lastName">LastName:</label>
-        <input type="text" id="lastName" name="lastName" required value="<%= user.last_name %>"><br>
-        <label for="username">Username:</label>
-        <input type="text" name="username" id="username" required maxlength="20" value="<%= user.username %>"><br>
-        <label for="password">Password:</label>
-        <input type="password" name="password" id="password" required minlength="4" value="<%= user.password %>"><br>
-        <button type="submit">UPDATE</button>
-    </form>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-brand">Members Only</div>
+        <div class="nav-links">
+            <ul>
+                <li><a href="/members-only">Home</a></li>
+                <li><a href="/write-message">Write a Message</a></li>
+                <li><a href="/become-member">Become a Member</a></li>
+                <li><a href="/settings" class="active">Settings</a></li>
+            </ul>
+        </div>
+        <a href="/log-out" class="logout-btn">Log Out</a>
+    </nav>
+
+    <main class="container">
+        <div class="settings-card">
+            <h1>Account Settings</h1>
+
+            <% if (update) { %>
+                <div class="success-message">
+                    <p>✨ Settings Updated Successfully</p>
+                </div>
+            <% } %>
+
+            <form action="/update-user" method="POST" class="settings-form">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="firstName">First Name</label>
+                        <input 
+                            type="text" 
+                            id="firstname" 
+                            name="firstName" 
+                            required 
+                            value="<%= user.first_name %>"
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="lastName">Last Name</label>
+                        <input 
+                            type="text" 
+                            id="lastName" 
+                            name="lastName" 
+                            required 
+                            value="<%= user.last_name %>"
+                        >
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input 
+                        type="text" 
+                        name="username" 
+                        id="username" 
+                        required 
+                        maxlength="20" 
+                        value="<%= user.username %>"
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <div class="password-input">
+                        <input 
+                            type="password" 
+                            name="password" 
+                            id="password" 
+                            required 
+                            minlength="4" 
+                            value="<%= user.password %>"
+                        >
+                        <button type="button" class="toggle-password" aria-label="Toggle password visibility">
+                            👁️
+                        </button>
+                    </div>
+                </div>
+
+                <button type="submit">Save Changes</button>
+            </form>
+        </div>
+    </main>
+
+    <script>
+        // Password visibility toggle
+        document.querySelector('.toggle-password').addEventListener('click', function() {
+            const passwordInput = document.getElementById('password');
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                this.textContent = '🔒';
+            } else {
+                passwordInput.type = 'password';
+                this.textContent = '👁️';
+            }
+        });
+    </script>
 </body>
 </html>

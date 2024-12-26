@@ -3,31 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Become A Member</title>
+    <link rel="stylesheet" href="/becomeMember.css">
+    <title>Members Only - Become a Member</title>
 </head>
 <body>
-    <h1>Become a Member</h1>
-    <% if (status) { %>
-        <h1>Membership Approved</h1>
-        <p>You are right, He is the Greatest Midfielder of All Time</p>
-        <p>Click on the link to go back to the Home Page</p>
-        <a href="/members-only">Home</a>
-    <% } else { %>
-        <div>
-            <% if (message) { %>
-                <p>Come On, That is not the Greatest Midfielder of All Time</p>
-            <% } %>
-            <p>Answer this Question to become a Member</p>
-            <p>Who is the Greatest Midfielder of All Time?</p>
-            <p></p>
-            <form action="/membership" method="POST">
-                <label for="answer">Answer:</label><br>
-                <input type="text" name="answer" id="answer" required>
-                <button type="submit">Submit</button>
-            </form>
+    <!-- Navigation (keeping consistent with other pages) -->
+    <nav class="navbar">
+        <div class="nav-brand">Members Only</div>
+        <div class="nav-links">
+            <ul>
+                <li><a href="/members-only">Home</a></li>
+                <li><a href="/write-message">Write a Message</a></li>
+                <li><a href="/become-member" class="active">Become a Member</a></li>
+                <li><a href="/settings">Settings</a></li>
+            </ul>
         </div>
-    <% } %>
-   
-   
+        <a href="/log-out" class="logout-btn">Log Out</a>
+    </nav>
+
+    <main class="container">
+        <div class="membership-card">
+            <% if (status) { %>
+                <div class="success-container">
+                    <h1>🎉 Membership Approved!</h1>
+                    <div class="success-message">
+                        <p class="approval-text">You are right, He is the Greatest Midfielder of All Time</p>
+                        <p class="next-steps">Return to the Home Page to see who posted what!</p>
+                        <a href="/members-only" class="home-button">Go to Home Page</a>
+                    </div>
+                </div>
+            <% } else { %>
+                <div class="question-container">
+                    <h1>Become a Member</h1>
+                    
+                    <div class="challenge-box">
+                        <h2>The Ultimate Question</h2>
+                        <p class="question-text">Who is the Greatest Midfielder of All Time?</p>
+                        
+                        <% if (message) { %>
+                            <div class="error-message">
+                                <p>Come On, That is not the Greatest Midfielder of All Time</p>
+                            </div>
+                        <% } %>
+
+                        <form action="/membership" method="POST" class="answer-form">
+                            <div class="form-group">
+                                <label for="answer">Your Answer:</label>
+                                <input 
+                                    type="text" 
+                                    name="answer" 
+                                    id="answer" 
+                                    required 
+                                    placeholder="Enter your answer..."
+                                    autocomplete="off"
+                                >
+                            </div>
+                            <button type="submit">Submit Answer</button>
+                        </form>
+                    </div>
+                </div>
+            <% } %>
+        </div>
+    </main>
 </body>
 </html>
