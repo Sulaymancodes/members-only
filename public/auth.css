@@ -31,14 +31,12 @@ body {
     width: 80px;
     height: 80px;
     margin-bottom: 24px;
-    opacity: 0;
     fill: #b794f4;
 }
 
 .title {
     font-size: 32px;
     margin-bottom: 16px;
-    opacity: 0;
 }
 
 .message {
@@ -46,14 +44,12 @@ body {
     color: #e2e8f0;
     margin-bottom: 32px;
     line-height: 1.6;
-    opacity: 0;
 }
 
 .buttons {
     display: flex;
     gap: 16px;
     justify-content: center;
-    opacity: 0;
 }
 
 .button {
@@ -92,7 +88,6 @@ body {
     padding: 32px;
     border-radius: 16px;
     margin-bottom: 32px;
-    opacity: 0;
     border: 1px solid rgba(183, 148, 244, 0.2);
 }
 
