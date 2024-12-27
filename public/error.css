@@ -29,13 +29,11 @@
             background: linear-gradient(to right, #b794f4, #805ad5);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            opacity: 0;
         }
 
         .title {
             font-size: 32px;
             margin-bottom: 16px;
-            opacity: 0;
         }
 
         .message {
@@ -43,14 +41,12 @@
             color: #e2e8f0;
             margin-bottom: 32px;
             line-height: 1.6;
-            opacity: 0;
         }
 
         .buttons {
             display: flex;
             gap: 16px;
             justify-content: center;
-            opacity: 0;
         }
 
         .button {
@@ -86,7 +82,6 @@
 
         .glitch-wrapper {
             position: relative;
-            opacity: 0;
         }
 
         .glitch {
