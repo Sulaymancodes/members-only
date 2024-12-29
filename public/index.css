@@ -144,11 +144,42 @@
                 padding: 16px;
             }
 
+            .container {
+                padding: 0 25px;
+            }
+        
             .features-grid {
                 grid-template-columns: 1fr;
             }
 
             .cta-content {
                 padding: 40px 20px;
+            }
+            .button {
+                padding: 8px 12px;
+                border-radius: 8px;
+                border: none;
+                font-size: 16px;
+                cursor: pointer;
+                transition: all 0.3s;
+            }
+
+            .link-btn {
+                font-size: .8rem;
+            }
+        }
+
+        @media (max-width: 380px) {
+            .button {
+                padding: 6px 12px;
+                border-radius: 8px;
+                border: none;
+                font-size: 16px;
+                cursor: pointer;
+                transition: all 0.3s;
+            }
+
+            .link-btn {
+                font-size: .8rem;
             }
         }
