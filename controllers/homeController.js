@@ -1,3 +1,4 @@
+const { formatDistanceToNow } = require('date-fns');
 const db = require("../db/queries");
 
 async function getHome (req, res) {
@@ -5,7 +6,13 @@ async function getHome (req, res) {
         try {
             const membership_status = req.user.membership_status
             const messages = await db.getMessages();
-            res.render('home', {messages: messages, status: membership_status});
+            const formattedMessages = messages.map(message => ({
+                ...message,
+                timestamp: formatDistanceToNow(new Date(message.timestamp), { addSuffix: true })
+            }));
+            console.log(formattedMessages)
+
+            res.render('home', {messages: formattedMessages, status: membership_status});
         } catch (err) {
             console.log(err);
             res.render('home', {messages:[]});
