@@ -34,8 +34,8 @@
                                     <p class="author-name">By <%= message.first_name %></p>
                                     <p class="author-username">@<%= message.username %></p>
                                 <% } else { %>
-                                    <p class="author-name">By Anonymous</p>
-                                    <p class="author-username">@anonymous</p>
+                                    <p class="author-name anonymous">By Anonymous</p>
+                                    <p class="author-username anonymous">@anonymous</p>
                                 <% } %>
                             </div>
                             <time class="message-time"><%= message.timestamp %></time>

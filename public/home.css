@@ -120,10 +120,18 @@ body {
 
 .author-name {
     font-weight: 500;
+    font-size: .7rem;
 }
 
 .author-username {
     color: #6366f1;
+    font-size: .7rem;
+}
+
+.anonymous{
+    color: white;
+    border-radius: 12px;
+    padding: 4px 8px;
 }
 
 .message-time {
