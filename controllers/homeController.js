@@ -10,7 +10,6 @@ async function getHome (req, res) {
                 ...message,
                 timestamp: formatDistanceToNow(new Date(message.timestamp), { addSuffix: true })
             }));
-            console.log(formattedMessages)
 
             res.render('home', {messages: formattedMessages, status: membership_status});
         } catch (err) {
