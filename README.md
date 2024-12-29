@@ -12,7 +12,7 @@
 
 ### Role-based access for users with membership status.
 
-### Tech Stack
+## Tech Stack
 
 ### Backend: Node.js, Express.js
 
