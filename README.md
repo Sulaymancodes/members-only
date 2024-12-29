@@ -34,3 +34,4 @@
 ### - public/ - Static assets such as CSS and images.
 ### - db/ - Database-related scripts and configurations.
 ### - config/ - Passport.js configuration for authentication.
+### - controller/ - Controllers for routes middleware functions
