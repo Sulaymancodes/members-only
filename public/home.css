@@ -129,7 +129,8 @@ body {
 }
 
 .anonymous{
-    color: white;
+    background-color: #dfe2e7;
+    color: rgb(74, 40, 40);
     border-radius: 12px;
     padding: 4px 8px;
 }
