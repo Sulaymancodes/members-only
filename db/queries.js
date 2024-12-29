@@ -15,7 +15,7 @@ async function getUser(id) {
 }
 
 async function getMessages() {
-    const { rows } = await pool.query("SELECT u.first_name, u.last_name, u.username, u.membership_status, m.title, m.text, m.timestamp FROM Messages AS m JOIN Users AS u ON m.user_id = u.id;");
+    const { rows } = await pool.query("SELECT u.first_name, u.last_name, u.username, u.membership_status, m.title, m.text, m.timestamp FROM Messages AS m JOIN Users AS u ON m.user_id = u.id ORDER BY m.timestamp DESC;");
     return rows;
 }
 
