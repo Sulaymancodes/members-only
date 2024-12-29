@@ -22,3 +22,15 @@
 
 ### Environment Management: dotenv
 
+## Deployment
+### The application is deployed on Railway. Ensure the DATABASE_URL environment variable is set correctly for production. The connection will use SSL if the NODE_ENV is set to production.
+## Usage
+### - Register or log in to access the app's features.
+### - Create and view anonymous posts.
+### - Membership status determines additional access rights.
+## Folder Structure
+### - routes/ - Application routes for authentication and posts.
+### - views/ - EJS templates for rendering pages.
+### - public/ - Static assets such as CSS and images.
+### - db/ - Database-related scripts and configurations.
+### - config/ - Passport.js configuration for authentication.
